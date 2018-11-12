@@ -10,34 +10,40 @@ namespace WayneEnterprises.OnlineBanking.WebApi.Controllers
     [ApiController]
     public class ConfigurationController : ControllerBase
     {
-        private IOptionsSnapshot<ConfigurationModel> Configuration { get; }
+        private IOptionsSnapshot<ApplicationConfigurationModel> ApplicationConfiguration { get; }
 
-        private ConfigServerClientSettingsOptions ConfigServerClientSettingsOptions { get; }
+        private ConfigServerClientSettingsOptions ServerConfiguration { get; }
 
         private IConfigurationRoot Config { get; }
 
         public ConfigurationController(
             IConfigurationRoot config,
-            IOptionsSnapshot<ConfigurationModel> configuration,
+            IOptionsSnapshot<ApplicationConfigurationModel> configuration,
             IOptions<ConfigServerClientSettingsOptions> configServerSettings)
         {
             if (configuration != null)
             {
-                Configuration = configuration;
+                ApplicationConfiguration = configuration;
             }
 
             if (configServerSettings != null)
             {
-                ConfigServerClientSettingsOptions = configServerSettings.Value;
+                ServerConfiguration = configServerSettings.Value;
             }
 
             Config = config;
         }
 
         [HttpGet("[action]")]
-        public ActionResult<ConfigurationModel> Settings()
+        public ActionResult<ApplicationConfigurationModel> Application()
         {
-            return Ok();
+            return Ok(ApplicationConfiguration.Value);
+        }
+
+        [HttpGet("[action]")]
+        public ActionResult<ConfigServerClientSettingsOptions> Server()
+        {
+            return Ok(ServerConfiguration);
         }
     }
 }

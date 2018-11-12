@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Steeltoe.Extensions.Configuration.ConfigServer;
 using WayneEnterprises.Authentication;
 using WayneEnterprises.Authorisation;
+using WayneEnterprises.OnlineBanking.WebApi.Models;
 
 namespace WayneEnterprises.OnlineBanking.WebApi
 {
@@ -25,6 +26,7 @@ namespace WayneEnterprises.OnlineBanking.WebApi
             services.ConfigureConfigServerClientOptions(Configuration);
             services.AddConfiguration(Configuration);
             services.AddMvcCore().AddAuthorization().AddJsonFormatters();
+            services.Configure<ApplicationConfigurationModel>(Configuration);
             services.AddCors();
 
             services.AddResourceOwnerPasswordCredentialsFlow(x =>

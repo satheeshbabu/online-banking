@@ -1,6 +1,6 @@
 ﻿namespace WayneEnterprises.OnlineBanking.WebApi.Models
 {
-    public class ConfigurationModel
+    public class ApplicationConfigurationModel
     {
         public string Bar { get; set; }
         public string Foo { get; set; }

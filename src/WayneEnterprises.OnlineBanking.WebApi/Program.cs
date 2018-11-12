@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace WayneEnterprises.OnlineBanking.WebApi
 {
@@ -12,6 +13,7 @@ namespace WayneEnterprises.OnlineBanking.WebApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .AddConfigServer()
                 .UseStartup<Startup>();
     }
 }

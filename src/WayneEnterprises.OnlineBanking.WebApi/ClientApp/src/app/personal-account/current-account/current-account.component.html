@@ -1,0 +1,24 @@
+<h1>Current Account</h1>
+
+<p *ngIf="!account"><em>Loading...</em></p>
+
+<h3 *ngIf="account">{{ account.name }} {{ account.number }}</h3>
+
+<table class='table' *ngIf="account">
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Balance</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let transaction of account.transactions">
+    <td>{{ transaction.date }}</td>
+    <td>{{ transaction.description }}</td>
+    <td>{{ transaction.amount }}</td>
+    <td>{{ transaction.balance }}</td>
+  </tr>
+  </tbody>
+</table>

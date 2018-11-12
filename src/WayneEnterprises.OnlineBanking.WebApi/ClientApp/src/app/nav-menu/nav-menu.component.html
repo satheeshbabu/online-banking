@@ -1,0 +1,53 @@
+<div class='main-nav'>
+  <div class='navbar navbar-inverse'>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand' [routerLink]='["/"]'><img class="img-responsive" src="../assets/images/logo.png" /></a>
+    </div>
+    <div class='clearfix'></div>
+    <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+      <ul class='nav navbar-nav'>
+        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-home'></span> Home
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/password-flow-login"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-lock'></span> Password Flow Login
+          </a>
+        </li>
+        <li *ngIf="isPersonalAccount" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/personal-account/current-account"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-transfer'></span> Personal Account
+          </a>
+        </li>
+        <li *ngIf="isBusinessAccount" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/business-account/current-account"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-transfer'></span> Business Account
+          </a>
+        </li>
+        <li *ngIf="isCreditCard" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/credit-card/current-account"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-credit-card'></span> Credit Card
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/counter"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-education'></span> Counter
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-th-list'></span> Fetch data
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

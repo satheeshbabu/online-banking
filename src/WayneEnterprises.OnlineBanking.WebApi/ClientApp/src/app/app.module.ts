@@ -32,7 +32,7 @@ import { SharedModule } from "./shared/shared.module";
     OAuthModule.forRoot()
   ],
   providers: [
-    { provide: BASE_URL, useValue: "http://localhost:37499" }
+    { provide: BASE_URL, useValue: "https://onlinebanking.wayne.enterprises" }
   ],
   bootstrap: [AppComponent]
 })

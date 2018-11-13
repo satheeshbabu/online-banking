@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authPasswordFlowConfig = {
-    issuer: 'https://192.168.99.100:30182/auth/realms/wayne-enterprises',
+    issuer: 'http://192.168.99.100:30181/auth/realms/wayne-enterprises',
     redirectUri: window.location.origin + '/index.html',
     silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
     clientId: 'online-banking',

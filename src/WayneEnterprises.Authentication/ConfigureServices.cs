@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WayneEnterprises.Authentication
 {
@@ -25,6 +26,11 @@ namespace WayneEnterprises.Authentication
                 x.Authority = optionsObject.Authority;
                 x.Audience = optionsObject.Audience;
                 x.RequireHttpsMetadata = optionsObject.RequireHttpsMetadata;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false,
+                    ValidateIssuer = false
+                };
             });
 
             return services;
